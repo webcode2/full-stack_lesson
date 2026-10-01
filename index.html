@@ -1,0 +1,742 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description"
+    content="Nova AI - The next-generation autonomous AI workspace designed to accelerate modern engineering and product teams.">
+  <meta name="keywords" content="AI, Autonomous Workspace, Developer Tools, Machine Learning, Automation, SaaS">
+  <meta name="author" content="Nova AI Technologies">
+  <title>Nova AI — Autonomous Intelligent Workspace</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet">
+
+  <!-- Remix Icons for clean icons -->
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet">
+
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+  <!-- Background Ambient Glow & Canvas -->
+  <canvas id="ambient-canvas"></canvas>
+  <div class="glow-orb orb-1"></div>
+  <div class="glow-orb orb-2"></div>
+  <div class="glow-orb orb-3"></div>
+
+  <!-- Scroll Progress Indicator -->
+  <div id="scroll-progress"></div>
+
+  <!-- Header / Navigation -->
+  <header class="navbar" id="navbar">
+    <div class="container nav-container">
+      <a href="#" class="brand-logo" id="brand-logo">
+        <div class="logo-icon">
+          <i class="ri-sparkling-fill"></i>
+        </div>
+        <span class="logo-text">Nova<span class="gradient-text">AI</span></span>
+      </a>
+
+      <nav class="nav-menu" id="nav-menu">
+        <a href="#features" class="nav-link">Features</a>
+        <a href="#playground" class="nav-link">Playground</a>
+        <a href="#architecture" class="nav-link">Architecture</a>
+        <a href="#pricing" class="nav-link">Pricing</a>
+        <a href="#faq" class="nav-link">FAQ</a>
+      </nav>
+
+      <div class="nav-actions">
+        <button class="btn btn-ghost" id="login-btn">Sign In</button>
+        <button class="btn btn-primary btn-glow" id="header-cta-btn">
+          <span>Get Started</span>
+          <i class="ri-arrow-right-line"></i>
+        </button>
+        <button class="mobile-toggle" id="mobile-toggle" aria-label="Toggle Navigation Menu">
+          <i class="ri-menu-4-line"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer -->
+  <div class="mobile-drawer" id="mobile-drawer">
+    <div class="drawer-links">
+      <a href="#features" class="drawer-link">Features</a>
+      <a href="#playground" class="drawer-link">Playground</a>
+      <a href="#architecture" class="drawer-link">Architecture</a>
+      <a href="#pricing" class="drawer-link">Pricing</a>
+      <a href="#faq" class="drawer-link">FAQ</a>
+    </div>
+    <div class="drawer-actions">
+      <button class="btn btn-ghost w-full" id="drawer-login-btn">Sign In</button>
+      <button class="btn btn-primary w-full" id="drawer-cta-btn">Get Started Free</button>
+    </div>
+  </div>
+
+  <main>
+    <!-- Hero Section -->
+    <section class="hero-section" id="hero">
+      <div class="container hero-container">
+
+        <div class="hero-badge" id="hero-badge">
+          <span class="badge-dot"></span>
+          <i class="ri-arrow-right-s-line"></i>
+        </div>
+
+        <h1 class="hero-title">
+          Build 10x faster with <br>
+          <span class="gradient-text">Autonomous Intelligence</span>
+        </h1>
+
+        <p class="hero-subtitle">
+          Nova AI transforms how modern engineering teams build, debug, and ship software.
+          Harness multi-agent reasoning, real-time code synthesis, and deep repository context.
+        </p>
+
+        <div class="hero-cta-group">
+          <button class="btn btn-primary btn-lg btn-glow" id="hero-get-started">
+            <i class="ri-flashlight-fill"></i>
+            <span>Start Free 14-Day Trial</span>
+          </button>
+          <button class="btn btn-secondary btn-lg" id="hero-watch-demo">
+            <i class="ri-play-circle-line"></i>
+            <span>Interactive Demo</span>
+          </button>
+        </div>
+
+        <div class="hero-stats">
+          <div class="stat-item">
+            <span class="stat-value">99.8%</span>
+            <span class="stat-label">Syntax Precision</span>
+          </div>
+          <div class="stat-divider"></div>
+          <div class="stat-item">
+            <span class="stat-value">4.2M+</span>
+            <span class="stat-label">Tasks Automated</span>
+          </div>
+          <div class="stat-divider"></div>
+          <div class="stat-item">
+            <span class="stat-value">450+</span>
+            <span class="stat-label">Enterprise Teams</span>
+          </div>
+        </div>
+
+        <!-- Interactive Hero Visual Dashboard -->
+        <div class="hero-visual" id="hero-visual">
+          <div class="glass-mockup">
+            <div class="mockup-header">
+              <div class="window-dots">
+                <span class="dot dot-red"></span>
+                <span class="dot dot-yellow"></span>
+                <span class="dot dot-green"></span>
+              </div>
+              <div class="mockup-tab-bar">
+                <div class="mockup-tab active"><i class="ri-terminal-box-line"></i> agent_workflow.ts</div>
+                <div class="mockup-tab"><i class="ri-git-branch-line"></i> refactor-auth.patch</div>
+                <div class="mockup-tab"><i class="ri-cpu-line"></i> telemetry.json</div>
+              </div>
+              <div class="mockup-actions">
+                <span class="badge badge-success"><i class="ri-pulse-line"></i> Live Sync</span>
+              </div>
+            </div>
+
+            <div class="mockup-body">
+              <div class="mockup-sidebar">
+                <div class="side-item active"><i class="ri-cpu-line"></i> Nova Core</div>
+                <div class="side-item"><i class="ri-git-merge-line"></i> Auto PRs</div>
+                <div class="side-item"><i class="ri-shield-check-line"></i> Code Guard</div>
+                <div class="side-item"><i class="ri-speed-up-line"></i> Profiler</div>
+              </div>
+
+              <div class="mockup-editor">
+                <div class="code-lines">
+                  <div class="code-row"><span class="ln">01</span><span class="kw">import</span> { <span
+                      class="fn">NovaOrchestrator</span>, <span class="fn">NeuralAgent</span> } <span
+                      class="kw">from</span> <span class="str">'@nova/ai-core'</span>;</div>
+                  <div class="code-row"><span class="ln">02</span></div>
+                  <div class="code-row"><span class="ln">03</span><span class="kw">const</span> <span
+                      class="var">workspace</span> = <span class="kw">await</span> <span
+                      class="fn">NovaOrchestrator</span>.<span class="fn">init</span>({</div>
+                  <div class="code-row"><span class="ln">04</span> <span class="prop">repository</span>: <span
+                      class="str">'enterprise/cloud-engine'</span>,</div>
+                  <div class="code-row"><span class="ln">05</span> <span class="prop">autonomyLevel</span>: <span
+                      class="str">'maximum-supervised'</span>,</div>
+                  <div class="code-row highlight-row"><span class="ln">06</span> <span class="prop">capabilities</span>:
+                    [<span class="str">'semantic-refactor'</span>, <span class="str">'auto-unit-tests'</span>, <span
+                      class="str">'cloud-deploy'</span>]</div>
+                  <div class="code-row"><span class="ln">07</span>});</div>
+                  <div class="code-row"><span class="ln">08</span></div>
+                  <div class="code-row"><span class="ln">09</span><span class="com">// Agent dynamically discovers
+                      pipeline bottlenecks</span></div>
+                  <div class="code-row"><span class="ln">10</span><span class="kw">const</span> <span
+                      class="var">solution</span> = <span class="kw">await</span> <span
+                      class="var">workspace</span>.<span class="fn">optimizeSubsystem</span>(<span
+                      class="str">'auth-latency'</span>);</div>
+                  <div class="code-row"><span class="ln">11</span><span class="var">console</span>.<span
+                      class="fn">log</span>(<span class="str">`Optimization complete: -64% latency drop`</span>);</div>
+                </div>
+
+                <div class="floating-agent-pill">
+                  <div class="agent-avatar"><i class="ri-brain-line"></i></div>
+                  <div class="agent-info">
+                    <span class="agent-status-text">Autonomous Agent Active</span>
+                    <span class="agent-subtext">Optimizing database queries & caches...</span>
+                  </div>
+                  <div class="agent-meter">
+                    <div class="meter-bar"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Trusted By / Brand Logos Marquee -->
+    <section class="partners-section">
+      <div class="container">
+        <p class="partners-label">TRUSTED BY INNOVATION LEADERS WORLDWIDE</p>
+        <div class="marquee-wrapper">
+          <div class="marquee-content">
+            <span class="partner-logo"><i class="ri-google-fill"></i> Hyperion</span>
+            <span class="partner-logo"><i class="ri-github-fill"></i> VertexLabs</span>
+            <span class="partner-logo"><i class="ri-amazon-fill"></i> CloudPulse</span>
+            <span class="partner-logo"><i class="ri-microsoft-fill"></i> QuantumWave</span>
+            <span class="partner-logo"><i class="ri-spotify-fill"></i> StreamLogic</span>
+            <span class="partner-logo"><i class="ri-netflix-fill"></i> NovaScale</span>
+          </div>
+          <div class="marquee-content" aria-hidden="true">
+            <span class="partner-logo"><i class="ri-google-fill"></i> Hyperion</span>
+            <span class="partner-logo"><i class="ri-github-fill"></i> VertexLabs</span>
+            <span class="partner-logo"><i class="ri-amazon-fill"></i> CloudPulse</span>
+            <span class="partner-logo"><i class="ri-microsoft-fill"></i> QuantumWave</span>
+            <span class="partner-logo"><i class="ri-spotify-fill"></i> StreamLogic</span>
+            <span class="partner-logo"><i class="ri-netflix-fill"></i> NovaScale</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Features Bento Grid -->
+    <section class="features-section" id="features">
+      <div class="container">
+
+        <div class="section-header">
+          <div class="pill-badge"><i class="ri-magic-line"></i> Capabilities</div>
+          <h2 class="section-title">Built for high-velocity engineering</h2>
+          <p class="section-desc">Experience an interconnected suite of autonomous tools crafted to eliminate cognitive
+            overhead.</p>
+        </div>
+
+        <div class="bento-grid">
+
+          <!-- Bento Item 1: Large -->
+          <div class="bento-card bento-large spotlight-card">
+            <div class="spotlight-overlay"></div>
+            <div class="bento-content">
+              <div class="bento-icon-box"><i class="ri-node-tree"></i></div>
+              <h3>Deep Contextual Graph Engine</h3>
+              <p>Nova indexes millions of lines of code, commit history, and system dependencies to formulate
+                architectural awareness before suggesting a single change.</p>
+
+              <div class="bento-mini-demo graph-demo">
+                <div class="node node-main"><i class="ri-database-2-line"></i> Schema</div>
+                <div class="node-connector"></div>
+                <div class="node node-active"><i class="ri-sparkling-fill"></i> Nova Agent</div>
+                <div class="node-connector"></div>
+                <div class="node node-target"><i class="ri-cloud-line"></i> Microservices</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Bento Item 2 -->
+          <div class="bento-card spotlight-card">
+            <div class="spotlight-overlay"></div>
+            <div class="bento-content">
+              <div class="bento-icon-box"><i class="ri-shield-keyhole-line"></i></div>
+              <h3>Zero-Trust Security</h3>
+              <p>All embeddings remain private to your tenant with end-to-end air-gapped cryptographic guarantees and
+                SOC2 compliance.</p>
+              <div class="security-badge">
+                <i class="ri-lock-2-line"></i> 256-bit AES Enclave Protection
+              </div>
+            </div>
+          </div>
+
+          <!-- Bento Item 3 -->
+          <div class="bento-card spotlight-card">
+            <div class="spotlight-overlay"></div>
+            <div class="bento-content">
+              <div class="bento-icon-box"><i class="ri-git-pull-request-line"></i></div>
+              <h3>Autonomous Pull Requests</h3>
+              <p>Agents write complete unit tests, update documentation, and open formatted PRs with zero human
+                boilerplate.</p>
+              <div class="pr-preview-badge">
+                <span class="pr-status"><i class="ri-check-line"></i> 14 Tests Passing</span>
+                <span class="pr-time">120ms execution</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Bento Item 4: Wide -->
+          <div class="bento-card bento-wide spotlight-card">
+            <div class="spotlight-overlay"></div>
+            <div class="bento-content">
+              <div class="bento-icon-box"><i class="ri-rocket-2-line"></i></div>
+              <div class="wide-info">
+                <h3>Sub-second Realtime Neural Inference</h3>
+                <p>Enjoy blazing speed with our distributed edge model network offering under 40ms token turnaround.</p>
+              </div>
+              <div class="speed-meter">
+                <div class="speed-num">38<span class="speed-unit">ms</span></div>
+                <div class="speed-desc">Average Latency Worldwide</div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Interactive Live Playground Section -->
+    <section class="playground-section" id="playground">
+      <div class="container">
+
+        <div class="section-header">
+          <div class="pill-badge"><i class="ri-terminal-window-line"></i> Live Experiment</div>
+          <h2 class="section-title">Test Drive the Agent Engine</h2>
+          <p class="section-desc">Select a scenario or type a prompt to see how Nova AI autonomously executes real
+            tasks.</p>
+        </div>
+
+        <div class="playground-container">
+
+          <div class="playground-controls">
+            <button class="demo-preset-btn active" data-preset="api">
+              <i class="ri-exchange-dollar-line"></i> Stripe Webhook Pipeline
+            </button>
+            <button class="demo-preset-btn" data-preset="auth">
+              <i class="ri-fingerprint-line"></i> Passkey Biometric Auth
+            </button>
+            <button class="demo-preset-btn" data-preset="refactor">
+              <i class="ri-speed-up-line"></i> SQL Query Optimizer
+            </button>
+            <button class="demo-preset-btn" data-preset="docker">
+              <i class="ri-server-line"></i> Multi-Stage Dockerfile
+            </button>
+          </div>
+
+          <div class="playground-window">
+
+            <div class="window-bar">
+              <div class="window-dots">
+                <span class="dot dot-red"></span>
+                <span class="dot dot-yellow"></span>
+                <span class="dot dot-green"></span>
+              </div>
+              <div class="window-title" id="playground-filename">webhook_handler.ts</div>
+              <button class="copy-btn" id="playground-copy" title="Copy Code">
+                <i class="ri-file-copy-line"></i> <span>Copy</span>
+              </button>
+            </div>
+
+            <div class="playground-content-area">
+              <pre><code id="playground-code" class="code-stream"></code></pre>
+            </div>
+
+            <div class="playground-status-bar">
+              <div class="status-left">
+                <span class="status-indicator"></span>
+                <span id="agent-thinking-text">Agent finished in 0.42s</span>
+              </div>
+              <div class="status-right">
+                <span>Memory: 18MB</span>
+                <span>•</span>
+                <span>Tokens: 384</span>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section class="pricing-section" id="pricing">
+      <div class="container">
+
+        <div class="section-header">
+          <div class="pill-badge"><i class="ri-price-tag-3-line"></i> Transparent Plans</div>
+          <h2 class="section-title">Scale seamlessly from hobby to enterprise</h2>
+          <p class="section-desc">Predictable pricing with zero hidden fees. Upgrade or downgrade anytime.</p>
+
+          <!-- Billing Switch -->
+          <div class="billing-toggle">
+            <span class="toggle-label" id="monthly-label">Monthly</span>
+            <button class="switch-btn" id="billing-switch" aria-label="Toggle Annual Billing">
+              <div class="switch-knob"></div>
+            </button>
+            <span class="toggle-label" id="annual-label">
+              Annually <span class="discount-pill">Save 20%</span>
+            </span>
+          </div>
+        </div>
+
+        <div class="pricing-grid">
+
+          <!-- Starter Plan -->
+          <div class="pricing-card spotlight-card">
+            <div class="spotlight-overlay"></div>
+            <div class="plan-header">
+              <h3 class="plan-name">Developer</h3>
+              <p class="plan-desc">For individual creators and independent builders.</p>
+              <div class="plan-price">
+                <span class="currency">$</span>
+                <span class="amount" data-monthly="19" data-annual="15">19</span>
+                <span class="period">/ month</span>
+              </div>
+            </div>
+
+            <ul class="plan-features">
+              <li><i class="ri-check-line"></i> 2 Concurrent Agents</li>
+              <li><i class="ri-check-line"></i> 50,000 AI Fast Tokens/mo</li>
+              <li><i class="ri-check-line"></i> Git Provider Integration</li>
+              <li><i class="ri-check-line"></i> Community Discord Access</li>
+              <li class="disabled"><i class="ri-close-line"></i> Dedicated Enterprise Enclave</li>
+            </ul>
+
+            <button class="btn btn-outline w-full plan-btn" data-plan="Developer">Start Free Trial</button>
+          </div>
+
+          <!-- Pro Plan (Featured) -->
+          <div class="pricing-card featured spotlight-card">
+            <div class="spotlight-overlay"></div>
+            <div class="featured-badge">MOST POPULAR</div>
+            <div class="plan-header">
+              <h3 class="plan-name">Team Pro</h3>
+              <p class="plan-desc">For fast-moving engineering teams scaling products.</p>
+              <div class="plan-price">
+                <span class="currency">$</span>
+                <span class="amount" data-monthly="49" data-annual="39">49</span>
+                <span class="period">/ user / mo</span>
+              </div>
+            </div>
+
+            <ul class="plan-features">
+              <li><i class="ri-check-line"></i> 10 Concurrent Agents</li>
+              <li><i class="ri-check-line"></i> Unlimited Fast Inference</li>
+              <li><i class="ri-check-line"></i> Full Codebase Semantic Graph</li>
+              <li><i class="ri-check-line"></i> CI/CD Pipeline Automation</li>
+              <li><i class="ri-check-line"></i> Priority 24/7 Slack Support</li>
+            </ul>
+
+            <button class="btn btn-primary btn-glow w-full plan-btn" data-plan="Team Pro">Deploy Nova Pro</button>
+          </div>
+
+          <!-- Enterprise Plan -->
+          <div class="pricing-card spotlight-card">
+            <div class="spotlight-overlay"></div>
+            <div class="plan-header">
+              <h3 class="plan-name">Enterprise</h3>
+              <p class="plan-desc">For global organizations requiring custom security.</p>
+              <div class="plan-price">
+                <span class="currency">$</span>
+                <span class="amount" data-monthly="149" data-annual="119">149</span>
+                <span class="period">/ user / mo</span>
+              </div>
+            </div>
+
+            <ul class="plan-features">
+              <li><i class="ri-check-line"></i> Unlimited Autonomous Agents</li>
+              <li><i class="ri-check-line"></i> Self-Hosted VPC / On-Prem Enclave</li>
+              <li><i class="ri-check-line"></i> Custom Fine-Tuned Domain Models</li>
+              <li><i class="ri-check-line"></i> SOC2 Type II & HIPAA Compliance</li>
+              <li><i class="ri-check-line"></i> Dedicated Solutions Architect</li>
+            </ul>
+
+            <button class="btn btn-outline w-full plan-btn" data-plan="Enterprise">Contact Sales</button>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Testimonials / Social Proof -->
+    <section class="testimonials-section">
+      <div class="container">
+
+        <div class="section-header">
+          <div class="pill-badge"><i class="ri-chat-heart-line"></i> Testimonials</div>
+          <h2 class="section-title">Loved by developers worldwide</h2>
+          <p class="section-desc">See how top engineering teams are shipping with Nova AI.</p>
+        </div>
+
+        <div class="testimonials-grid">
+
+          <div class="testimonial-card">
+            <div class="stars">
+              <i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i
+                class="ri-star-fill"></i><i class="ri-star-fill"></i>
+            </div>
+            <p class="testimonial-quote">"Nova AI helped our team refactor an 80,000-line legacy monolith into
+              microservices in less than two weeks. The architecture reasoning is lightyears ahead."</p>
+            <div class="user-profile">
+              <div class="user-avatar avatar-1">ES</div>
+              <div class="user-meta">
+                <span class="user-name">Elena Rostova</span>
+                <span class="user-role">VP of Engineering at CloudPulse</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="testimonial-card">
+            <div class="stars">
+              <i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i
+                class="ri-star-fill"></i><i class="ri-star-fill"></i>
+            </div>
+            <p class="testimonial-quote">"The multi-agent debugging workflow is mind-blowing. It caught a silent
+              concurrency race condition before our test harness could even register it."</p>
+            <div class="user-profile">
+              <div class="user-avatar avatar-2">DK</div>
+              <div class="user-meta">
+                <span class="user-name">David Kumar</span>
+                <span class="user-role">Principal Architect at VertexLabs</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="testimonial-card">
+            <div class="stars">
+              <i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i
+                class="ri-star-fill"></i><i class="ri-star-fill"></i>
+            </div>
+            <p class="testimonial-quote">"Autonomous PRs and zero-friction test generation cut our code review cycles by
+              60%. I can’t imagine shipping software without Nova anymore."</p>
+            <div class="user-profile">
+              <div class="user-avatar avatar-3">SL</div>
+              <div class="user-meta">
+                <span class="user-name">Sarah Lindqvist</span>
+                <span class="user-role">Staff Engineer at Hyperion</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- FAQ Accordion -->
+    <section class="faq-section" id="faq">
+      <div class="container faq-container">
+
+        <div class="section-header">
+          <div class="pill-badge"><i class="ri-questionnaire-line"></i> Got Questions?</div>
+          <h2 class="section-title">Frequently Asked Questions</h2>
+          <p class="section-desc">Everything you need to know about setting up and scaling with Nova AI.</p>
+        </div>
+
+        <div class="faq-accordion">
+
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">
+              <span>How does Nova AI integrate with my existing GitHub or GitLab repos?</span>
+              <i class="ri-add-line faq-icon"></i>
+            </button>
+            <div class="faq-answer">
+              <p>Nova connects in 1-click via GitHub App, GitLab Integration, or CLI token. It builds a local vectorized
+                semantic graph of your repository and begins assisting immediately with full branch awareness.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">
+              <span>Is my proprietary code trained on or shared with third parties?</span>
+              <i class="ri-add-line faq-icon"></i>
+            </button>
+            <div class="faq-answer">
+              <p>Strictly No. Your codebase is protected with private tenant isolation. We never train public foundation
+                models on customer code, and all inference can run through private VPC endpoints or air-gapped
+                instances.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">
+              <span>Can Nova autonomously execute commands and run tests?</span>
+              <i class="ri-add-line faq-icon"></i>
+            </button>
+            <div class="faq-answer">
+              <p>Yes. Nova runs within secure, sandboxed microVMs. You can configure permission thresholds ranging from
+                fully autonomous test execution to manual review-gated deployments.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">
+              <span>Can I switch between Monthly and Annual billing later?</span>
+              <i class="ri-add-line faq-icon"></i>
+            </button>
+            <div class="faq-answer">
+              <p>Absolutely. You can switch billing cadences or cancel anytime directly from your dashboard settings
+                with immediate prorated credits.</p>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Call to Action Banner -->
+    <section class="cta-banner-section">
+      <div class="container">
+        <div class="cta-card">
+          <div class="cta-glow"></div>
+          <div class="cta-content">
+            <h2 class="cta-title">Ready to build the future of software?</h2>
+            <p class="cta-desc">Join over 450+ forward-thinking engineering organizations already accelerating
+              development cycles.</p>
+
+            <div class="cta-input-group">
+              <input type="email" id="cta-email-input" placeholder="Enter your work email..."
+                aria-label="Work email address">
+              <button class="btn btn-primary btn-glow" id="cta-submit-btn">
+                <span>Start Free Trial</span>
+                <i class="ri-arrow-right-line"></i>
+              </button>
+            </div>
+
+            <div class="cta-perks">
+              <span><i class="ri-checkbox-circle-fill"></i> No credit card required</span>
+              <span><i class="ri-checkbox-circle-fill"></i> 14-day free trial</span>
+              <span><i class="ri-checkbox-circle-fill"></i> Cancel anytime</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container footer-container">
+
+      <div class="footer-brand">
+        <a href="#" class="brand-logo">
+          <div class="logo-icon"><i class="ri-sparkling-fill"></i></div>
+          <span class="logo-text">Nova<span class="gradient-text">AI</span></span>
+        </a>
+        <p class="footer-tagline">Empowering developers to orchestrate autonomous AI engineering workflows at planetary
+          scale.</p>
+        <div class="social-links">
+          <a href="#" aria-label="Twitter"><i class="ri-twitter-x-line"></i></a>
+          <a href="#" aria-label="GitHub"><i class="ri-github-fill"></i></a>
+          <a href="#" aria-label="Discord"><i class="ri-discord-fill"></i></a>
+          <a href="#" aria-label="LinkedIn"><i class="ri-linkedin-fill"></i></a>
+        </div>
+      </div>
+
+      <div class="footer-links-grid">
+        <div class="footer-col">
+          <h4>Product</h4>
+          <a href="#features">Autonomous Agents</a>
+          <a href="#playground">Live Playground</a>
+          <a href="#features">Semantic Graph</a>
+          <a href="#pricing">Pricing</a>
+          <a href="#">Roadmap</a>
+        </div>
+        <div class="footer-col">
+          <h4>Resources</h4>
+          <a href="#">Documentation</a>
+          <a href="#">API Reference</a>
+          <a href="#">Changelog</a>
+          <a href="#">Status Page</a>
+          <a href="#">Community Forum</a>
+        </div>
+        <div class="footer-col">
+          <h4>Company</h4>
+          <a href="#">About Us</a>
+          <a href="#">Careers <span class="hiring-badge">Hiring</span></a>
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Service</a>
+          <a href="#">Security Enclave</a>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+      <div class="container footer-bottom-container">
+        <p>© 2026 Nova AI Technologies Inc. All rights reserved.</p>
+        <div class="footer-bottom-badges">
+          <span class="system-status"><span class="pulse-dot"></span> All Systems Operational</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Interactive Modal -->
+  <div class="modal-backdrop" id="modal-backdrop">
+    <div class="modal-dialog">
+      <button class="modal-close" id="modal-close" aria-label="Close Dialog">
+        <i class="ri-close-line"></i>
+      </button>
+
+      <div class="modal-header">
+        <div class="modal-icon"><i class="ri-rocket-line"></i></div>
+        <h3 id="modal-title">Get Started with Nova AI</h3>
+        <p id="modal-subtitle">Experience autonomous software development in your browser.</p>
+      </div>
+
+      <form id="modal-form" class="modal-form" onsubmit="return false;">
+        <div class="form-group">
+          <label for="modal-name">Full Name</label>
+          <input type="text" id="modal-name" placeholder="Ada Lovelace" required>
+        </div>
+        <div class="form-group">
+          <label for="modal-email">Work Email</label>
+          <input type="email" id="modal-email" placeholder="ada@company.com" required>
+        </div>
+        <div class="form-group">
+          <label for="modal-team-size">Team Size</label>
+          <select id="modal-team-size">
+            <option value="1-5">1 - 5 engineers</option>
+            <option value="6-20">6 - 20 engineers</option>
+            <option value="21-100">21 - 100 engineers</option>
+            <option value="100+">100+ Enterprise</option>
+          </select>
+        </div>
+        <button type="submit" class="btn btn-primary btn-glow w-full" id="modal-submit-btn">
+          <span>Create Workspace</span>
+          <i class="ri-arrow-right-line"></i>
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Toast Notification System -->
+  <div class="toast-container" id="toast-container"></div>
+
+  <!-- Back to top button -->
+  <button id="back-to-top" class="back-to-top" aria-label="Back to Top">
+    <i class="ri-arrow-up-line"></i>
+  </button>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
